@@ -69,6 +69,18 @@ WHERE  (Customer.BillingCity = @BillingCity)
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="BillingCities">
+      <Query>
+        <DataSourceName>Galactic</DataSourceName>
+        <CommandText>SELECT DISTINCT BillingCity FROM Customer ORDER BY BillingCity</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="BillingCity">
+          <DataField>BillingCity</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
