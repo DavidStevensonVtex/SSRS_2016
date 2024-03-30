@@ -2,8 +2,7 @@
 <RptDataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Galactic">
   <ConnectionProperties>
     <Extension>SQL</Extension>
-    <ConnectString>Data Source=localhost\SQL_2022</ConnectString>
-    <Prompt>Specify a user name and password for data source Galactic:</Prompt>
+    <ConnectString>Data Source=localhost\SQL_2022;Initial Catalog=Galactic</ConnectString>
   </ConnectionProperties>
   <DataSourceID>7f36c543-eb89-436e-bc0d-8d491993a494</DataSourceID>
 </RptDataSource>
