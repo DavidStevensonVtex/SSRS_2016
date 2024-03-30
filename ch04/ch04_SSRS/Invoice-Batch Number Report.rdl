@@ -133,7 +133,7 @@ FROM     Customer INNER JOIN
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>2.1in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -386,7 +386,7 @@ FROM     Customer INNER JOIN
             <DataSetName>CustomerInvoices</DataSetName>
             <Top>0.42in</Top>
             <Height>0.63in</Height>
-            <Width>3in</Width>
+            <Width>4.1in</Width>
             <ZIndex>1</ZIndex>
             <Style />
           </Tablix>
