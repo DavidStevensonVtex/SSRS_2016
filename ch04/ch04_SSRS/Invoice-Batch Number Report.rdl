@@ -1,16 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" MustUnderstand="df">
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
+  <am:AuthoringMetadata>
+    <am:CreatedBy>
+      <am:Name>SSDTRS</am:Name>
+      <am:Version>17.8.34309.116</am:Version>
+    </am:CreatedBy>
+    <am:UpdatedBy>
+      <am:Name>SSDTRS</am:Name>
+      <am:Version>17.8.34309.116</am:Version>
+    </am:UpdatedBy>
+    <am:LastModifiedTimestamp>2024-03-30T18:40:16.6748724Z</am:LastModifiedTimestamp>
+  </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="Galactic">
       <DataSourceReference>Galactic</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>daaf2422-0c1d-4c94-a1d5-b9d70268f50d</rd:DataSourceID>
+      <rd:DataSourceID>ac076853-7ec8-4827-a3bb-8f7b376c5ce6</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="CustomerInvoices">
       <Query>
         <DataSourceName>Galactic</DataSourceName>
         <CommandText>SELECT Customer.BillingCity, Customer.Name, InvoiceHeader.BatchNumber, InvoiceHeader.InvoiceNumber, InvoiceHeader.TotalAmount
@@ -66,6 +77,7 @@ FROM     Customer INNER JOIN
             </Paragraphs>
             <rd:DefaultName>textbox1</rd:DefaultName>
             <Height>0.42in</Height>
+            <Width>5in</Width>
             <Style>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
@@ -96,7 +108,6 @@ FROM     Customer INNER JOIN
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>textbox3</rd:DefaultName>
-                        <Height>0.21in</Height>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -148,8 +159,6 @@ FROM     Customer INNER JOIN
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>textbox2</rd:DefaultName>
-                          <Height>0.21in</Height>
-                          <Width>1in</Width>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -203,8 +212,6 @@ FROM     Customer INNER JOIN
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>BillingCity</rd:DefaultName>
-                        <Height>0.21in</Height>
-                        <Width>1in</Width>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -249,8 +256,6 @@ FROM     Customer INNER JOIN
                               </Paragraph>
                             </Paragraphs>
                             <rd:DefaultName>Name</rd:DefaultName>
-                            <Height>0.21in</Height>
-                            <Width>1in</Width>
                             <Style>
                               <Border>
                                 <Color>LightGrey</Color>
@@ -263,6 +268,10 @@ FROM     Customer INNER JOIN
                           </Textbox>
                         </CellContents>
                       </TablixHeader>
+                      <Visibility>
+                        <Hidden>true</Hidden>
+                        <ToggleItem>BillingCity</ToggleItem>
+                      </Visibility>
                       <DataElementOutput>Output</DataElementOutput>
                       <KeepTogether>true</KeepTogether>
                     </TablixMember>
@@ -304,8 +313,6 @@ FROM     Customer INNER JOIN
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>BatchNumber</rd:DefaultName>
-                        <Height>0.21in</Height>
-                        <Width>1in</Width>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -350,8 +357,6 @@ FROM     Customer INNER JOIN
                               </Paragraph>
                             </Paragraphs>
                             <rd:DefaultName>InvoiceNumber</rd:DefaultName>
-                            <Height>0.21in</Height>
-                            <Width>1in</Width>
                             <Style>
                               <Border>
                                 <Color>LightGrey</Color>
@@ -364,6 +369,10 @@ FROM     Customer INNER JOIN
                           </Textbox>
                         </CellContents>
                       </TablixHeader>
+                      <Visibility>
+                        <Hidden>true</Hidden>
+                        <ToggleItem>BatchNumber</ToggleItem>
+                      </Visibility>
                       <DataElementOutput>Output</DataElementOutput>
                       <KeepTogether>true</KeepTogether>
                     </TablixMember>
@@ -374,8 +383,11 @@ FROM     Customer INNER JOIN
             </TablixRowHierarchy>
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
             <RepeatRowHeaders>true</RepeatRowHeaders>
-            <DataSetName>DataSet1</DataSetName>
+            <DataSetName>CustomerInvoices</DataSetName>
             <Top>0.42in</Top>
+            <Height>0.63in</Height>
+            <Width>3in</Width>
+            <ZIndex>1</ZIndex>
             <Style />
           </Tablix>
         </ReportItems>
@@ -400,6 +412,6 @@ FROM     Customer INNER JOIN
   </ReportParametersLayout>
   <Language>en-US</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <rd:ReportUnitType>Invalid</rd:ReportUnitType>
-  <rd:ReportID>3e69a116-ef37-4d68-88e1-170b0171c6ad</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>3f9a0eab-d62e-41d8-bc32-fc7f9e330b26</rd:ReportID>
 </Report>

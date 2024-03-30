@@ -54,6 +54,7 @@
   <ItemGroup>
     <Report Include="Customer List.rdl" />
     <Report Include="Customer-Invoice Report.rdl" />
+    <Report Include="Invoice-Batch Number Report.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
