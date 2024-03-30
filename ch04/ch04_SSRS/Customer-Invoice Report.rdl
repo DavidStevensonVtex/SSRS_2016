@@ -133,7 +133,7 @@ ORDER BY Customer.BillingCity, Customer.Name, InvoiceHeader.InvoiceNumber</Comma
                               <TablixBody>
                                 <TablixColumns>
                                   <TablixColumn>
-                                    <Width>1in</Width>
+                                    <Width>1.81667in</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>1in</Width>
@@ -377,7 +377,6 @@ ORDER BY Customer.BillingCity, Customer.Name, InvoiceHeader.InvoiceNumber</Comma
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -426,6 +425,7 @@ ORDER BY Customer.BillingCity, Customer.Name, InvoiceHeader.InvoiceNumber</Comma
                                                     <Style>
                                                       <FontFamily />
                                                       <FontWeight>Bold</FontWeight>
+                                                      <Format>C2</Format>
                                                       <Color>#333333</Color>
                                                     </Style>
                                                   </TextRun>
@@ -533,6 +533,7 @@ ORDER BY Customer.BillingCity, Customer.Name, InvoiceHeader.InvoiceNumber</Comma
                                                     <Value>=Fields!InvoiceDate.Value</Value>
                                                     <Style>
                                                       <FontFamily />
+                                                      <Format>MM/dd/yyyy</Format>
                                                       <Color>#333333</Color>
                                                     </Style>
                                                   </TextRun>
@@ -555,6 +556,7 @@ ORDER BY Customer.BillingCity, Customer.Name, InvoiceHeader.InvoiceNumber</Comma
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
+                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -569,6 +571,7 @@ ORDER BY Customer.BillingCity, Customer.Name, InvoiceHeader.InvoiceNumber</Comma
                                                     <Value>=Fields!TotalAmount.Value</Value>
                                                     <Style>
                                                       <FontFamily />
+                                                      <Format>C2</Format>
                                                       <Color>#333333</Color>
                                                     </Style>
                                                   </TextRun>
@@ -650,7 +653,7 @@ ORDER BY Customer.BillingCity, Customer.Name, InvoiceHeader.InvoiceNumber</Comma
                               <DataSetName>CustomerInvoices</DataSetName>
                               <Top>0.5in</Top>
                               <Height>0.64in</Height>
-                              <Width>4in</Width>
+                              <Width>4.81667in</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <FontFamily />
