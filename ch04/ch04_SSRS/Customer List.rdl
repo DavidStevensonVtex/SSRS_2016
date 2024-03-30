@@ -21,12 +21,11 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="Customers">
       <Query>
         <DataSourceName>Galactic</DataSourceName>
         <CommandText>SELECT Name, BillingContact, BillingEmail
-FROM     Customer
-ORDER BY Name</CommandText>
+FROM     Customer</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -247,6 +246,7 @@ ORDER BY Name</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -343,6 +343,11 @@ ORDER BY Name</CommandText>
                   <Group Name="table1_Details_Group">
                     <DataElementName>Detail</DataElementName>
                   </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!Name.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
                   <TablixMembers>
                     <TablixMember />
                   </TablixMembers>
@@ -352,7 +357,7 @@ ORDER BY Name</CommandText>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>DataSet1</DataSetName>
+            <DataSetName>Customers</DataSetName>
             <Top>0.42in</Top>
             <Height>0.43in</Height>
             <Width>5in</Width>
