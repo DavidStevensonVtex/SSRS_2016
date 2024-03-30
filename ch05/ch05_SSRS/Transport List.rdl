@@ -24,13 +24,27 @@
     <DataSet Name="TransportList">
       <Query>
         <DataSourceName>Galactic</DataSourceName>
-        <CommandText>SELECT TransportType.Description, TransportType.CargoCapacity, TransportType.Range, Transport.SerialNumber, Transport.PurchaseDate, Transport.RetiredDate, MAX(Repair.BeginWorkDate) AS LatestRepairDate
-FROM     TransportType INNER JOIN
-                  Transport ON TransportType.TransportTypeID = Transport.TransportTypeID LEFT OUTER JOIN
-                  Repair ON Transport.TransportNumber = Repair.TransportNumber
-GROUP BY TransportType.Description, TransportType.CargoCapacity, TransportType.Range, Transport.SerialNumber, Transport.PurchaseDate, Transport.RetiredDate
-HAVING (Transport.RetiredDate IS NULL)
+        <CommandText>SELECT TransportType.Description
+	, TransportType.CargoCapacity
+	, TransportType.Range
+	, Transport.SerialNumber
+	, Transport.PurchaseDate
+	, Transport.RetiredDate
+	, MAX(Repair.BeginWorkDate) AS LatestRepairDate
+FROM     TransportType 
+	INNER JOIN Transport 
+		ON TransportType.TransportTypeID = Transport.TransportTypeID 
+	LEFT OUTER JOIN Repair 
+		ON Transport.TransportNumber = Repair.TransportNumber
+WHERE Transport.RetiredDate IS NULL
+GROUP BY TransportType.Description
+	, TransportType.CargoCapacity
+	, TransportType.Range
+	, Transport.SerialNumber
+	, Transport.PurchaseDate
+	, Transport.RetiredDate
 ORDER BY TransportType.Description, Transport.SerialNumber</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
         <Field Name="Description">
