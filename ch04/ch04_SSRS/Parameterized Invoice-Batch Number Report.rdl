@@ -436,14 +436,26 @@ WHERE  (Customer.BillingCity = @BillingCity)
   <ReportParameters>
     <ReportParameter Name="BillingCity">
       <DataType>String</DataType>
-      <Prompt>Billing City</Prompt>
+      <DefaultValue>
+        <Values>
+          <Value>Axelburg</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Select a City</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>BillingCities</DataSetName>
+          <ValueField>BillingCity</ValueField>
+          <LabelField>BillingCity</LabelField>
+        </DataSetReference>
+      </ValidValues>
     </ReportParameter>
     <ReportParameter Name="StartDate">
-      <DataType>String</DataType>
+      <DataType>DateTime</DataType>
       <Prompt>Start Date</Prompt>
     </ReportParameter>
     <ReportParameter Name="EndDate">
-      <DataType>String</DataType>
+      <DataType>DateTime</DataType>
       <Prompt>End Date</Prompt>
     </ReportParameter>
   </ReportParameters>
