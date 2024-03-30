@@ -51,5 +51,8 @@
   <ItemGroup>
     <DataSource Include="Galactic.rds" />
   </ItemGroup>
+  <ItemGroup>
+    <Report Include="Customer List.rdl" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
