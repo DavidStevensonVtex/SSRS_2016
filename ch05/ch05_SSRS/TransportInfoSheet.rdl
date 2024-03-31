@@ -181,6 +181,13 @@ HAVING (t.SerialNumber = @SerialNumber) AND (r.RepairID IS NULL)</CommandText>
     <ReportParameter Name="SerialNumber">
       <DataType>String</DataType>
       <Prompt>Serial Number</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>TransportSNs</DataSetName>
+          <ValueField>SerialNumber</ValueField>
+          <LabelField>SerialNumber</LabelField>
+        </DataSetReference>
+      </ValidValues>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
