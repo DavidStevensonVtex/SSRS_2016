@@ -172,7 +172,9 @@ ORDER BY RepairCause, TypeOfWork ;</CommandText>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>RepairID</rd:DefaultName>
@@ -187,6 +189,7 @@ ORDER BY RepairCause, TypeOfWork ;</CommandText>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
