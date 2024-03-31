@@ -44,21 +44,50 @@ ORDER BY SerialNumber</CommandText>
             <Value>=Parameters!SerialNumber.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT tt.Description
+        <CommandText>SELECT t.SerialNumber
+	, t.PurchaseDate
+	, tt.Description
 	, tt.CargoCapacity
 	, tt.Range
-	, t.SerialNumber
-	, t.PurchaseDate
-	, t.RetiredDate
-	, MAX(r.BeginWorkDate) AS LatestRepairDate
-FROM TransportType tt
-	INNER JOIN Transport t
-		ON tt.TransportTypeID = t.TransportTypeID 
+	, tt.Cost
+	, tt.Crew
+	, tt.Manufacturer
+	, tt.ManAddr1
+	, tt.ManAddr2
+	, tt.ManCity
+	, tt.ManState
+	, tt.ManZipCode
+	, tt.ManPlanetAbbrv
+	, tt.ManEmail
+	, MIN(sm.ScheduledDate) AS NextMaintDate
+	, r.RepairID
+FROM Transport t
+	INNER JOIN TransportType tt
+		ON t.TransportTypeID = tt.TransportTypeID 
+	LEFT OUTER JOIN ScheduledMaint sm
+		ON t.TransportNumber = sm.TransportNumber 
 	LEFT OUTER JOIN Repair r
-		ON t.TransportNumber = r.TransportNumber
-GROUP BY tt.Description, tt.CargoCapacity, tt.Range, t.SerialNumber, t.PurchaseDate, t.RetiredDate
-HAVING (t.SerialNumber = @SerialNumber) AND (t.RetiredDate IS NULL)
-ORDER BY tt.Description, t.SerialNumber</CommandText>
+		ON sm.ScheduledMaintID = r.ScheduledMaintID
+WHERE t.SerialNumber = @SerialNumber 
+GROUP BY t.SerialNumber
+	, t.PurchaseDate
+	, tt.Description
+	, tt.CargoCapacity
+	, tt.Range
+	, tt.Cost
+	, tt.Crew
+	, tt.Manufacturer
+	, tt.ManAddr1
+	, tt.ManAddr2
+	, tt.ManCity
+	, tt.ManState
+	, tt.ManZipCode
+	, tt.ManPlanetAbbrv
+	, tt.ManEmail
+	, sm.ScheduledDate
+	, r.RepairID
+HAVING (t.SerialNumber = @SerialNumber) AND (r.RepairID IS NULL)</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
         <Field Name="Description">
@@ -81,13 +110,53 @@ ORDER BY tt.Description, t.SerialNumber</CommandText>
           <DataField>PurchaseDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="RetiredDate">
-          <DataField>RetiredDate</DataField>
+        <Field Name="Cost">
+          <DataField>Cost</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Crew">
+          <DataField>Crew</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Manufacturer">
+          <DataField>Manufacturer</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ManAddr1">
+          <DataField>ManAddr1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ManAddr2">
+          <DataField>ManAddr2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ManCity">
+          <DataField>ManCity</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ManState">
+          <DataField>ManState</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ManZipCode">
+          <DataField>ManZipCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ManPlanetAbbrv">
+          <DataField>ManPlanetAbbrv</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ManEmail">
+          <DataField>ManEmail</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NextMaintDate">
+          <DataField>NextMaintDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="LatestRepairDate">
-          <DataField>LatestRepairDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+        <Field Name="RepairID">
+          <DataField>RepairID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
