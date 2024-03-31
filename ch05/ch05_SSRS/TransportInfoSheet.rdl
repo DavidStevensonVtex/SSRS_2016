@@ -20,6 +20,78 @@
       <rd:DataSourceID>a9507e4f-d3d1-4a9b-8b55-ccb8dc20a439</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="TransportSNs">
+      <Query>
+        <DataSourceName>Galactic</DataSourceName>
+        <CommandText>SELECT SerialNumber
+FROM     Transport
+WHERE  (RetiredDate IS NULL)
+ORDER BY SerialNumber</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="SerialNumber">
+          <DataField>SerialNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="TransportDetail">
+      <Query>
+        <DataSourceName>Galactic</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@SerialNumber">
+            <Value>=Parameters!SerialNumber.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT tt.Description
+	, tt.CargoCapacity
+	, tt.Range
+	, t.SerialNumber
+	, t.PurchaseDate
+	, t.RetiredDate
+	, MAX(r.BeginWorkDate) AS LatestRepairDate
+FROM TransportType tt
+	INNER JOIN Transport t
+		ON tt.TransportTypeID = t.TransportTypeID 
+	LEFT OUTER JOIN Repair r
+		ON t.TransportNumber = r.TransportNumber
+GROUP BY tt.Description, tt.CargoCapacity, tt.Range, t.SerialNumber, t.PurchaseDate, t.RetiredDate
+HAVING (t.SerialNumber = @SerialNumber) AND (t.RetiredDate IS NULL)
+ORDER BY tt.Description, t.SerialNumber</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CargoCapacity">
+          <DataField>CargoCapacity</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Range">
+          <DataField>Range</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SerialNumber">
+          <DataField>SerialNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PurchaseDate">
+          <DataField>PurchaseDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="RetiredDate">
+          <DataField>RetiredDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="LatestRepairDate">
+          <DataField>LatestRepairDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -36,10 +108,23 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="SerialNumber">
+      <DataType>String</DataType>
+      <Prompt>Serial Number</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
       <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>SerialNumber</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

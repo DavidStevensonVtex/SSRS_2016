@@ -54,6 +54,7 @@
   <ItemGroup>
     <Report Include="RepairCountByType.rdl" />
     <Report Include="Transport List.rdl" />
+    <Report Include="TransportInfoSheet.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
