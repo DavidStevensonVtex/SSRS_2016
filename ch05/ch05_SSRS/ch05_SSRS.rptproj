@@ -52,6 +52,7 @@
     <DataSource Include="Galactic.rds" />
   </ItemGroup>
   <ItemGroup>
+    <Report Include="RepairCountByType.rdl" />
     <Report Include="Transport List.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
