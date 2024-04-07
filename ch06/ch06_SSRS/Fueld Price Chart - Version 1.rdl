@@ -9,7 +9,7 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.9.34723.18</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-04-07T20:17:14.3125118Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-04-07T20:19:20.6198441Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -17,9 +17,57 @@
     <DataSource Name="Galactic">
       <DataSourceReference>Galactic</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>57147817-6c64-4e30-8344-2c51fafdadbe</rd:DataSourceID>
+      <rd:DataSourceID>21f29fbf-70c7-4f53-89fb-bbbe8fc8cf8c</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="FuelPrices">
+      <Query>
+        <DataSourceName>Galactic</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@Year">
+            <Value>=Parameters!Year.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT Description AS FuelType, PriceStartDate, Price
+FROM FuelPrice fp
+	INNER JOIN Propulsion p
+		ON fp.PropulsionID = p.PropulsionID
+WHERE YEAR(PriceStartDate) = @Year
+ORDER BY FuelType, PriceStartDate</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="FuelType">
+          <DataField>FuelType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PriceStartDate">
+          <DataField>PriceStartDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Price">
+          <DataField>Price</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Years">
+      <Query>
+        <DataSourceName>Galactic</DataSourceName>
+        <CommandText>SELECT DISTINCT YEAR(PriceStartDate) AS Year
+FROM FuelPrice 
+ORDER BY YEAR(PriceStartDate)</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="Year">
+          <DataField>Year</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -36,10 +84,23 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="Year">
+      <DataType>String</DataType>
+      <Prompt>Year</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
       <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>Year</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
