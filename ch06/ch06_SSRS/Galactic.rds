@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Galactic">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=localhost\SQL_2022;Initial Catalog=Galactic</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>d58440c1-0bbc-4481-ad89-79efee9d8b13</DataSourceID>
+</RptDataSource>
