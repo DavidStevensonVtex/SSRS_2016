@@ -60,6 +60,7 @@
     <Report Include="Delivery Lost Package Chart - Version 4.rdl" />
     <Report Include="Fuel Price Chart - Version 1.rdl" />
     <Report Include="Fuel Price Chart - Version 2.rdl" />
+    <Report Include="Package Weight By Planet Chart.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
