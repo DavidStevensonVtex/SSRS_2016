@@ -118,7 +118,7 @@ WHERE Discount IS NOT NULL</CommandText>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style>
-                          <FontWeight>Bold</FontWeight>
+                          <FontSize>9pt</FontSize>
                           <Color>White</Color>
                         </Style>
                         <Label>#AXISLABEL</Label>
