@@ -58,6 +58,7 @@
     <Report Include="Delivery Lost Package Chart - Version 2.rdl" />
     <Report Include="Delivery Lost Package Chart - Version 3.rdl" />
     <Report Include="Delivery Lost Package Chart - Version 4.rdl" />
+    <Report Include="Discount Analysis Chart.rdl" />
     <Report Include="Fuel Price Chart - Version 1.rdl" />
     <Report Include="Fuel Price Chart - Version 2.rdl" />
     <Report Include="Package Weight By Planet Chart.rdl" />
