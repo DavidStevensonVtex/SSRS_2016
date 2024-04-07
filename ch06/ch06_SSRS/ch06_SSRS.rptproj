@@ -52,6 +52,7 @@
     <DataSource Include="Galactic.rds" />
   </ItemGroup>
   <ItemGroup>
+    <Report Include="Business Type Distribution Chart.rdl" />
     <Report Include="Delivery Lost Package Chart - Version 1.rdl" />
     <Report Include="Delivery Lost Package Chart - Version 2.rdl" />
     <Report Include="Delivery Lost Package Chart - Version 3.rdl" />
