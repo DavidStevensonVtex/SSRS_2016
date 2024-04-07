@@ -54,6 +54,7 @@
   <ItemGroup>
     <Report Include="Delivery Lost Package Chart - Version 1.rdl" />
     <Report Include="Delivery Lost Package Chart - Version 2.rdl" />
+    <Report Include="Delivery Lost Package Chart - Version 3.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
