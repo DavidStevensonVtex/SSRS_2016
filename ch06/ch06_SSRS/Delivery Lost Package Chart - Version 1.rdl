@@ -20,6 +20,34 @@
       <rd:DataSourceID>12fbc18b-396c-468b-a9f2-c015424ee6fd</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="TransportList">
+      <Query>
+        <DataSourceName>Galactic</DataSourceName>
+        <CommandText>SELECT d.DeliveryNumber, lp.LostPackageNumber, MONTH(PickupDateTime)
+FROM Delivery d
+	LEFT OUTER JOIN LostPackage lp
+		ON d.DeliveryNumber = lp.DeliveryNumber 
+WHERE YEAR(PickupDateTime) = 2015 
+ORDER BY MONTH(PickupDateTime)</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="DeliveryNumber">
+          <DataField>DeliveryNumber</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="LostPackageNumber">
+          <DataField>LostPackageNumber</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ID">
+          <DataField />
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
