@@ -57,6 +57,7 @@ WHERE PickupDateTime BETWEEN DATEADD(d, -28, @GaugeDate) AND @GaugeDate</Command
               <RadialGauge Name="RadialGauge1">
                 <GaugeScales>
                   <RadialScale Name="RadialScale1">
+                    <Radius>31</Radius>
                     <GaugePointers>
                       <RadialPointer Name="RadialPointer1">
                         <Type>Bar</Type>
@@ -105,6 +106,33 @@ WHERE PickupDateTime BETWEEN DATEADD(d, -28, @GaugeDate) AND @GaugeDate</Command
                         <Width>30</Width>
                       </RadialPointer>
                     </GaugePointers>
+                    <ScaleRanges>
+                      <ScaleRange Name="RadialRange1">
+                        <Style>
+                          <Border>
+                            <Color>Silver</Color>
+                            <Style>None</Style>
+                          </Border>
+                          <BackgroundColor>Red</BackgroundColor>
+                          <BackgroundGradientType>DiagonalLeft</BackgroundGradientType>
+                          <BackgroundGradientEndColor>White</BackgroundGradientEndColor>
+                          <BackgroundHatchType>None</BackgroundHatchType>
+                          <ShadowOffset>0pt</ShadowOffset>
+                        </Style>
+                        <DistanceFromScale>0</DistanceFromScale>
+                        <StartValue>
+                          <Value>0</Value>
+                          <Multiplier>1</Multiplier>
+                        </StartValue>
+                        <EndValue>
+                          <Value>20</Value>
+                          <Multiplier>1</Multiplier>
+                        </EndValue>
+                        <StartWidth>15</StartWidth>
+                        <EndWidth>30</EndWidth>
+                        <Placement>Outside</Placement>
+                      </ScaleRange>
+                    </ScaleRanges>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -115,10 +143,10 @@ WHERE PickupDateTime BETWEEN DATEADD(d, -28, @GaugeDate) AND @GaugeDate</Command
                       <BackgroundHatchType>None</BackgroundHatchType>
                       <ShadowOffset>0pt</ShadowOffset>
                     </Style>
-                    <Interval>50</Interval>
+                    <Interval>20</Interval>
                     <IntervalOffset>NaN</IntervalOffset>
                     <MaximumValue>
-                      <Value>100</Value>
+                      <Value>200</Value>
                       <Multiplier>1</Multiplier>
                     </MaximumValue>
                     <MinimumValue>
@@ -146,7 +174,7 @@ WHERE PickupDateTime BETWEEN DATEADD(d, -28, @GaugeDate) AND @GaugeDate</Command
                       <Hidden>true</Hidden>
                     </GaugeMajorTickMarks>
                     <GaugeMinorTickMarks>
-                      <Interval>NaN</Interval>
+                      <Interval>5</Interval>
                       <IntervalOffset>NaN</IntervalOffset>
                       <Style>
                         <Border>
@@ -162,7 +190,6 @@ WHERE PickupDateTime BETWEEN DATEADD(d, -28, @GaugeDate) AND @GaugeDate</Command
                       </TickMarkImage>
                       <Length>8</Length>
                       <Width>3</Width>
-                      <Hidden>true</Hidden>
                     </GaugeMinorTickMarks>
                     <MaximumPin>
                       <PinLabel>
@@ -224,7 +251,7 @@ WHERE PickupDateTime BETWEEN DATEADD(d, -28, @GaugeDate) AND @GaugeDate</Command
                     <Width>30</Width>
                   </RadialScale>
                   <RadialScale Name="RadialScale2">
-                    <Radius>27.75</Radius>
+                    <Radius>21</Radius>
                     <GaugePointers>
                       <RadialPointer Name="RadialPointer2">
                         <PointerCap>
@@ -277,17 +304,17 @@ WHERE PickupDateTime BETWEEN DATEADD(d, -28, @GaugeDate) AND @GaugeDate</Command
                       <Border>
                         <Style>None</Style>
                       </Border>
-                      <BackgroundColor>LightGrey</BackgroundColor>
-                      <BackgroundGradientType>None</BackgroundGradientType>
-                      <BackgroundGradientEndColor>White</BackgroundGradientEndColor>
+                      <BackgroundColor>Yellow</BackgroundColor>
+                      <BackgroundGradientType>LeftRight</BackgroundGradientType>
+                      <BackgroundGradientEndColor>Red</BackgroundGradientEndColor>
                       <FontFamily>Arial</FontFamily>
                       <BackgroundHatchType>None</BackgroundHatchType>
                       <ShadowOffset>0pt</ShadowOffset>
                     </Style>
-                    <Interval>50</Interval>
+                    <Interval>2</Interval>
                     <IntervalOffset>NaN</IntervalOffset>
                     <MaximumValue>
-                      <Value>100</Value>
+                      <Value>30</Value>
                       <Multiplier>1</Multiplier>
                     </MaximumValue>
                     <MinimumValue>
@@ -316,7 +343,7 @@ WHERE PickupDateTime BETWEEN DATEADD(d, -28, @GaugeDate) AND @GaugeDate</Command
                       <Hidden>true</Hidden>
                     </GaugeMajorTickMarks>
                     <GaugeMinorTickMarks>
-                      <Interval>NaN</Interval>
+                      <Interval>5</Interval>
                       <IntervalOffset>NaN</IntervalOffset>
                       <Style>
                         <Border>
@@ -386,11 +413,11 @@ WHERE PickupDateTime BETWEEN DATEADD(d, -28, @GaugeDate) AND @GaugeDate</Command
                     <ScaleLabels>
                       <Style>
                         <FontSize>14pt</FontSize>
+                        <Color>Red</Color>
                       </Style>
                       <Interval>NaN</Interval>
                       <IntervalOffset>NaN</IntervalOffset>
                       <DistanceFromScale>0</DistanceFromScale>
-                      <Placement>Outside</Placement>
                       <ShowEndLabels>true</ShowEndLabels>
                       <UseFontPercent>true</UseFontPercent>
                     </ScaleLabels>
@@ -432,6 +459,50 @@ WHERE PickupDateTime BETWEEN DATEADD(d, -28, @GaugeDate) AND @GaugeDate</Command
                 <Width>100</Width>
               </RadialGauge>
             </RadialGauges>
+            <GaugeLabels>
+              <GaugeLabel Name="GaugeLabel1">
+                <Text>Deliveries</Text>
+                <TextShadowOffset>0pt</TextShadowOffset>
+                <UseFontPercent>true</UseFontPercent>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <BackgroundColor>#00ffffff</BackgroundColor>
+                  <BackgroundGradientType>None</BackgroundGradientType>
+                  <BackgroundGradientEndColor>#00ffffff</BackgroundGradientEndColor>
+                  <FontSize>14pt</FontSize>
+                  <Color>#404040</Color>
+                  <ShadowOffset>0pt</ShadowOffset>
+                </Style>
+                <Top>80</Top>
+                <Left>42</Left>
+                <Height>9</Height>
+                <Width>19</Width>
+                <ParentItem>RadialGauges.RadialGauge1</ParentItem>
+              </GaugeLabel>
+              <GaugeLabel Name="GaugeLabel2">
+                <Text>Lost</Text>
+                <TextShadowOffset>0pt</TextShadowOffset>
+                <UseFontPercent>true</UseFontPercent>
+                <Style>
+                  <Border>
+                    <Style>None</Style>
+                  </Border>
+                  <BackgroundColor>#00ffffff</BackgroundColor>
+                  <BackgroundGradientType>None</BackgroundGradientType>
+                  <BackgroundGradientEndColor>#00ffffff</BackgroundGradientEndColor>
+                  <FontSize>14pt</FontSize>
+                  <Color>#404040</Color>
+                  <ShadowOffset>0pt</ShadowOffset>
+                </Style>
+                <Top>66</Top>
+                <Left>46</Left>
+                <Height>6</Height>
+                <Width>9</Width>
+                <ParentItem>RadialGauges.RadialGauge1</ParentItem>
+              </GaugeLabel>
+            </GaugeLabels>
             <AutoLayout>true</AutoLayout>
             <BackFrame>
               <Style>
