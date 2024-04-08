@@ -29,7 +29,11 @@
             <Value>=Parameters!GaugeDate.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT COUNT(d.DeliveryNumber) AS NumOfPickups, COUNT(lp.LostPackageNumber) AS NumLost
+        <CommandText>SELECT COUNT(d.DeliveryNumber) AS NumOfPickups, COUNT(lp.LostPackageNumber) AS NumLost,
+	(	SELECT COUNT(*)
+		FROM Repair
+		WHERE BeginWorkDate BETWEEN DATEADD(d, -28, @GaugeDate) AND @GaugeDate)
+	AS NumRepairs
 FROM Delivery d
 	LEFT OUTER JOIN LostPackage lp
 		ON d.DeliveryNumber = lp.DeliveryNumber
@@ -43,6 +47,10 @@ WHERE PickupDateTime BETWEEN DATEADD(d, -28, @GaugeDate) AND @GaugeDate</Command
         </Field>
         <Field Name="NumLost">
           <DataField>NumLost</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="NumRepairs">
+          <DataField>NumRepairs</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
